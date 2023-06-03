@@ -4,7 +4,8 @@ import "./App.css";
 
 // Components
 import Header from "./components/Header/Header";
-import CardMovie from './components/CardUser/CardMovie';
+import CardMovie from './components/CardMovie/CardMovie';
+import NavBar from './components/NavBar/NavBar';
 
 
 
@@ -14,6 +15,7 @@ class App extends Component{
       <div className='App'>
         <Header title="Pelifly" 
         />
+        <NavBar />
         <div className='UserSection'>
           <CardMovie 
             name="Blondi"
