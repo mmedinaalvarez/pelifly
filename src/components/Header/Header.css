@@ -1,18 +1,19 @@
 .Header{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: darkcyan;
+    align-items: flex-start;
+    justify-items: center;
+    padding-left: 20px ;
+    background-color: brown;
     flex-direction: column;
-    height: 30vh;
-    color: white;
+    height: 70px;
     width: 100%;
-    min-height: 30vh;
-    border: 10px solid yellow;
+    
 }
 
 .Header h1,
 h2{
     margin-bottom: 10px;
-    color: white;
+    color: whitesmoke;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2rem;
 }

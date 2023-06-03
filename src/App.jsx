@@ -12,8 +12,7 @@ class App extends Component{
   render(){
     return(
       <div className='App'>
-        <Header title="Soy el titulo a partir de una prop" 
-          subtitle="Soy el subtitulo a partir de la prop"
+        <Header title="Pelifly" 
         />
         <div className='UserSection'>
           <CardMovie 
