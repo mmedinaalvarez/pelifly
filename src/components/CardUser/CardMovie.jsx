@@ -12,6 +12,7 @@ const CardUser = (props) => {
         <CardMedia
           component="img"
           image= {props.img}
+          height="400px"
           alt="logo-user"
         />
         <CardContent>

@@ -4,7 +4,9 @@ import "./App.css";
 
 // Components
 import Header from "./components/Header/Header";
-import CardUser from './components/CardUser/CardUser';
+import CardMovie from './components/CardUser/CardMovie';
+
+
 
 class App extends Component{
   render(){
@@ -14,29 +16,25 @@ class App extends Component{
           subtitle="Soy el subtitulo a partir de la prop"
         />
         <div className='UserSection'>
-          <CardUser 
-            name="Manuel Medina"
-            date="Se unio en Enero de 2023"
-            description="Front-end Developer e intento de hacer algo productivo en React.js"
-            img="http://react.semantic-ui.com/images/avatar/large/matthew.png"  
+          <CardMovie 
+            name="Blondi"
+            date="Estreno"
+            description="Es una película que, en tono de comedia, abre imperceptiblemente temas enormes y trascendentes. Mientras relata la historia particular y cotidiana del vínculo de una madre con su hijo."
+            img="../src/assets/img/movies/blondi.jpg"  
           />
-          <CardUser 
-            name="Robertito Medina"
+          <CardMovie 
+            name="Disco de oro"
             date="Se unio en Enero de 2023"
-            description="Front-end Developer e intento de hacer algo productivo en React.js"
-            img="http://react.semantic-ui.com/images/avatar/large/matthew.png"  
+            description="Biopic del referente musical Neil Bogart, un soñador judío que, empezando con muchas ganas y poco dinero,"
+            img="../src/assets/img/movies/discodeoro.jpg"  
           />
-          <CardUser 
-            name="Gervasito Medina"
-            date="Se unio en Enero de 2023"
-            description="Front-end Developer e intento de hacer algo productivo en React.js"
-            img="http://react.semantic-ui.com/images/avatar/large/matthew.png"  
+          <CardMovie 
+            name="SPIDERMAN A TRAVES DEL SPIDERVERSO"
+            date="Estreno"
+            description="Después de reunirse con Gwen Stacy, Spider-Man, el amigable vecino de Brooklyn, es transportado a través del Multiverso."
+            img="../src/assets/img/movies/spiderman.jpg"
           />
         </div>
-        {/* <Header title="sadaaaaa partir de una prop" subtitle="bbbbbde la prop"/> 
-        <Header title="ddsdsdsa una prop" subtitle="aaaaaa de la prop"/> 
-        <Header title="Soy el asdsaadsdsa a partir de una prop" subtitle="asdsadsa prop"/>  */}
-        
       </div>
     );
   }
