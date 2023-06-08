@@ -1,0 +1,16 @@
+nav{
+    background-color: #3670cf;
+    border-radius: 5px;
+}
+ul{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+    list-style: none;
+}
+
+
+a:link, a:visited, a:active{
+    text-decoration: none;
+    color: whitesmoke;
+}
