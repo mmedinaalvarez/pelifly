@@ -1,11 +1,11 @@
-import React from 'react'
-import CardMovie from '../CardMovie/CardMovie';
-
+import React from "react";
+import CardMovie from "../CardMovie/CardMovie";
+import ListMovie from "../ListMovie/ListMovie";
 
 const ItemListContainer = () => {
   return (
-    <div className='UserSection'>
-          <CardMovie 
+    <div className="UserSection">
+      {/* <CardMovie 
             name="Blondi"
             date="Estreno"
             description="Es una película que, en tono de comedia, abre imperceptiblemente temas enormes y trascendentes. Mientras relata la historia particular y cotidiana del vínculo de una madre con su hijo."
@@ -22,9 +22,10 @@ const ItemListContainer = () => {
             date="Estreno"
             description="Después de reunirse con Gwen Stacy, Spider-Man, el amigable vecino de Brooklyn, es transportado a través del Multiverso."
             img="../src/assets/img/movies/spiderman.jpg"
-          />
-        </div>
-  )
-}
+          /> */}
+      <ListMovie />
+    </div>
+  );
+};
 
 export default ItemListContainer;

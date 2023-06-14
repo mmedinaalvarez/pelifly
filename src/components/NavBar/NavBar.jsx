@@ -1,5 +1,6 @@
 import React from "react";
 import "./NavBar.css";
+import CardWidget from "../CardWidget/CardWidget.jsx";
 
 const NavBar = () => {
   return (
@@ -16,6 +17,9 @@ const NavBar = () => {
         </li>
         <li>
           <a href="http://www.google.com">PROXIMOS ESTRENOS</a>
+        </li>
+        <li>
+          <CardWidget />
         </li>
       </ul>
     </nav>

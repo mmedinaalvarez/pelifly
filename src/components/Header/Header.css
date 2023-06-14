@@ -1,18 +1,17 @@
 .Header{
-    display: flex;
-    align-items: flex-start;
-    justify-items: center;
-    background-color: #1922D2;
-    flex-direction: column;
-    height: 70px;
-    width: 100%;
+    background-color: #0c52c4;
+    width: 100%; 
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
-.Header h1,
-h2{
+h1{
+    margin-top: 5px;
     margin-left: 5vh;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     color: whitesmoke;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 2rem;
+    text-decoration: underline;
 }

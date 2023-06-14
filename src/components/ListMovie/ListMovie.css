@@ -1,0 +1,12 @@
+
+.Cards-List
+{
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+h2{
+    text-align: start;
+    color: whitesmoke;
+}

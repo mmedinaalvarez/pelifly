@@ -1,10 +1,9 @@
 
 .App{
   text-align: center;
+  background-color: black;
 }
 
 .UserSection {
-  display: flex;
-  justify-content: space-evenly;
   margin-top: 20px;
 }
