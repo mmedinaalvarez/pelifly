@@ -3,6 +3,8 @@ import axios from "axios";
 import CardMovie from "../CardMovie/CardMovie";
 import "./ListMovie.css";
 
+import { Link } from "react-router-dom";
+
 const ListMovie = () => {
   const [names, setNames] = useState([]);
   useEffect(() => {
@@ -18,7 +20,9 @@ const ListMovie = () => {
         {names.map((name) => {
           return (
             <div style={{ margin: 10 }} key={name.id}>
-              <CardMovie name={name} />
+              <Link to={`detail/${name.id}`}>
+                <CardMovie name={name} />
+              </Link>
             </div>
           );
         })}
