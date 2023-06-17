@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./NavBar.css";
 import CardWidget from "../CardWidget/CardWidget.jsx";
 
@@ -9,29 +10,24 @@ const NavBar = () => {
     <nav>
       <ul>
         <Link className="li" to="/">
-          Home
+          Estrenos
         </Link>
+
+        <Link className="li" to="/category/top_rated">
+          Mas populares
+        </Link>
+        <Link className="li" to="/category/upcoming">
+          Proximamente
+        </Link>
+
         <Link className="li" to="/about">
           About
         </Link>
+
         <Link className="li" to="/contact">
           Contact
         </Link>
-        {/* <li>
-          <a href="http://www.google.com">HOME</a>
-        </li>
-        <li>
-          <a href="http://www.google.com">ESTRENOS</a>
-        </li>
-        <li>
-          <a href="http://www.google.com">CARTELERA</a>
-        </li>
-        <li>
-          <a href="http://www.google.com">PROXIMOS ESTRENOS</a>
-        </li>
-        <li>
-          <CardWidget />
-        </li> */}
+        <CardWidget />
       </ul>
     </nav>
   );

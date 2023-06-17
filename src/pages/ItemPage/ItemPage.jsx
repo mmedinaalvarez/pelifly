@@ -9,7 +9,6 @@ import Button from "@mui/material/Button";
 
 const DetailPage = () => {
   const [name, setName] = useState([{}]);
-
   let { id } = useParams();
 
   useEffect(() => {
@@ -23,7 +22,7 @@ const DetailPage = () => {
   return (
     <div
       style={{
-        height: 400,
+        height: 500,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

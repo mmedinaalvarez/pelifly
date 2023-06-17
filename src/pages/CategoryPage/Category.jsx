@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CardMovie from "../CardMovie/CardMovie";
-import "./ListMovie.css";
+import { useParams } from "react-router-dom";
+import CardMovie from "../../components/CardMovie/CardMovie";
 
-import { Link } from "react-router-dom";
-
-const ListMovie = () => {
+const Category = () => {
   const [names, setNames] = useState([]);
+  let { categoryId } = useParams();
+
   useEffect(() => {
     axios(
-      `${import.meta.env.VITE_API_URL}now_playing${
+      `${import.meta.env.VITE_API_URL}${categoryId}/${
         import.meta.env.VITE_API_KEY
       }&language=es-ES`
     ).then((json) => setNames(json.data.results));
   }, []);
+
   return (
     <div>
       <div className="Cards-List">
         {names.map((name) => {
           return (
             <div style={{ margin: 10 }} key={name.id}>
-              <Link to={`item/${name.id}`}>
-                <CardMovie name={name} />
-              </Link>
+              <CardMovie name={name} />
             </div>
           );
         })}
@@ -31,4 +30,4 @@ const ListMovie = () => {
   );
 };
 
-export default ListMovie;
+export default Category;
