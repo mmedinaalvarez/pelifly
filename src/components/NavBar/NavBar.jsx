@@ -2,11 +2,22 @@ import React from "react";
 import "./NavBar.css";
 import CardWidget from "../CardWidget/CardWidget.jsx";
 
+import { Link } from "react-router-dom";
+
 const NavBar = () => {
   return (
     <nav>
       <ul>
-        <li>
+        <Link className="li" to="/">
+          Home
+        </Link>
+        <Link className="li" to="/about">
+          About
+        </Link>
+        <Link className="li" to="/contact">
+          Contact
+        </Link>
+        {/* <li>
           <a href="http://www.google.com">HOME</a>
         </li>
         <li>
@@ -20,7 +31,7 @@ const NavBar = () => {
         </li>
         <li>
           <CardWidget />
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
