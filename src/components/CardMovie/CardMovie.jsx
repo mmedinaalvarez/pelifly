@@ -5,22 +5,24 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-const CardMovie = ({ name }) => {
+const CardMovie = ({ data }) => {
   return (
-    <Card sx={{ width: 285, height: 230 }}>
+    <Card sx={{ maxWidth: 200 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          image={`https://image.tmdb.org/t/p/w500/${name.backdrop_path}`}
+          height="285"
+          image={data.img}
           alt="poster-movie"
         />
         <Typography
           gutterBottom
-          variant="h5"
+          variant="h7"
           component="div"
           textAlign="center"
+          marginTop="5px"
         >
-          {name.title}
+          {data.name}
         </Typography>
       </CardActionArea>
     </Card>

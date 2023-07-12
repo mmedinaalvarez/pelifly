@@ -31,7 +31,7 @@ const DetailPage = () => {
     >
       <div>{name.id ? <CardMovie name={name} /> : null}</div>
       <div>
-        <div style={{ color: "white" }}>{name.overview}</div>
+        <div style={{ color: "black" }}>{name.overview}</div>
         <Button style={{ marginTop: 30 }} variant="contained">
           Comprar
         </Button>

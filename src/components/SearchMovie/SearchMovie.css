@@ -1,0 +1,11 @@
+.Form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin: 20px;
+}
+
+.TextField{
+    width: 700px;
+}

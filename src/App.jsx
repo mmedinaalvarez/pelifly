@@ -16,24 +16,25 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import ItemPage from "./pages/ItemPage/ItemPage";
 import CategoryPage from "./pages/CategoryPage/Category";
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="App">
+const App = () => {
+  return (
+    <Router>
+      <div className="App">
+        <div className="Header">
           <Header title="Pelifly" />
           <NavBar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/item/:id" element={<ItemPage />} />
-            <Route path="/category/:categoryId" element={<CategoryPage />} />
-          </Routes>
         </div>
-      </Router>
-    );
-  }
-}
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/item/:id" element={<ItemPage />} />
+          <Route path="/category/:categoryId" element={<CategoryPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
 
 export default App;

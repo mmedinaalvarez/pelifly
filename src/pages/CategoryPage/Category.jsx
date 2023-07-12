@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import CardMovie from "../../components/CardMovie/CardMovie";
+import SearchMovie from "../../components/SearchMovie/SearchMovie";
 
 const Category = () => {
   const [names, setNames] = useState([]);
@@ -17,6 +18,7 @@ const Category = () => {
 
   return (
     <div>
+      <SearchMovie />
       <div className="Cards-List">
         {names.map((name) => {
           return (

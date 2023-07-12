@@ -1,12 +1,12 @@
 nav{
-    background-color: #3670cf;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    /* background-color: #3670cf; */
+    background-color: #0c52c4;
+    width: 100%;
 }
 ul{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-around; 
+    align-items: flex-end; 
     margin-top: 0;
     list-style: none;
 }

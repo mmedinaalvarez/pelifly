@@ -3,6 +3,8 @@ import React from "react";
 import "./NavBar.css";
 import CardWidget from "../CardWidget/CardWidget.jsx";
 
+import MenuGenres from "../MenuGenre/MenuGenres";
+
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -10,20 +12,14 @@ const NavBar = () => {
     <nav>
       <ul>
         <Link className="li" to="/">
-          Estrenos
+          Cartelera
         </Link>
-
         <Link className="li" to="/category/top_rated">
-          Mas populares
+          Generos
         </Link>
-        <Link className="li" to="/category/upcoming">
-          Proximamente
-        </Link>
-
         <Link className="li" to="/about">
           About
         </Link>
-
         <Link className="li" to="/contact">
           Contact
         </Link>

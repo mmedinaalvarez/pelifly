@@ -1,13 +1,12 @@
 
 .Cards-List
 {
-    
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
+    gap: 20px;
 }
 
 h2{
-    text-align: start;
-    color: whitesmoke;
+    color: black;
 }

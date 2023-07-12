@@ -1,28 +1,36 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import CardMovie from "../CardMovie/CardMovie";
 import "./ListMovie.css";
 
 import { Link } from "react-router-dom";
 
+// FIREBASE
+import { db } from "../../firebase/firebaseConfig";
+import { collection, query, where, getDocs } from "firebase/firestore";
+
 const ListMovie = () => {
-  const [names, setNames] = useState([]);
+  const [movies, setMovies] = useState([]);
+
   useEffect(() => {
-    axios(
-      `${import.meta.env.VITE_API_URL}now_playing${
-        import.meta.env.VITE_API_KEY
-      }&language=es-ES`
-    ).then((json) => setNames(json.data.results));
+    const getMovies = async () => {
+      const q = query(collection(db, "movies"));
+      const docs = [];
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      console.log(docs);
+      setMovies(docs);
+    };
+    getMovies();
   }, []);
   return (
     <div>
       <div className="Cards-List">
-        {names.map((name) => {
+        {movies.map((movie) => {
           return (
-            <div style={{ margin: 10 }} key={name.id}>
-              <Link to={`item/${name.id}`}>
-                <CardMovie name={name} />
-              </Link>
+            <div key={movie.id}>
+              <CardMovie data={movie} />
             </div>
           );
         })}

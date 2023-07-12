@@ -1,15 +1,15 @@
 import React from "react";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import MovieIcon from "@mui/icons-material/LocalMovies";
 import "./CardWidget.css";
 
 const CardWidget = () => {
   return (
     <div
       className="widgetCart"
-      style={{ display: "flex", alignItems: "center", color: "whitesmoke" }}
+      style={{ display: "flex", color: "whitesmoke" }}
     >
-      <ShoppingBasketIcon />
-      <p>3</p>
+      <MovieIcon />
+      <p style={{ color: "whitesmoke" }}>3</p>
     </div>
   );
 };
