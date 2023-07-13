@@ -30,7 +30,9 @@ const ListMovie = () => {
         {movies.map((movie) => {
           return (
             <div key={movie.id}>
-              <CardMovie data={movie} />
+              <Link to={`detail/${movie.id}`}>
+                <CardMovie data={movie} />
+              </Link>
             </div>
           );
         })}

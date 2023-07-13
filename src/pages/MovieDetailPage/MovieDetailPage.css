@@ -1,0 +1,25 @@
+.DetailContainer{
+    margin: 25px;
+    border: solid #5784ba;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-color: #9bbee8;
+} 
+
+.CardDetail {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.CardDetail img {
+    width: 200px;
+}
+
+.OverviewDetail {
+    width: 50%;
+    margin-left: 50px;
+}

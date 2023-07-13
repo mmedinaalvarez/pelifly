@@ -1,22 +1,24 @@
-nav{
-    /* background-color: #3670cf; */
-    background-color: #0c52c4;
-    width: 100%;
+.ResponsiveNavigation{
+    align-items: center;
 }
-ul{
-    display: flex;
-    justify-content: space-around; 
-    align-items: flex-end; 
-    margin-top: 0;
-    list-style: none;
+.BrandContainer{
+    margin-left: 20px;
+    border-right: solid white 3px;
+   
 }
 
-a:link, a:visited, a:active{
-    text-decoration: none;
+.BrandContainer a{
     color: whitesmoke;
 }
 
-a:hover
-{
-    text-decoration: underline;
+.BrandContainer a h1{
+    margin-right: 20px;
+    
+}
+
+
+.ResponsiveNavigationContainer{
+    display: flex;
+    justify-content: space-around;
+    background-color: #0c52c4;
 }

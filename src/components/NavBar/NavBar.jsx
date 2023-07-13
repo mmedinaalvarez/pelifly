@@ -1,3 +1,12 @@
+// import { useContext } from "react";
+import { AppBar, Container, Toolbar } from "@mui/material";
+// import MenuGenre from "../MenuGenre/MenuGenre";
+//import { Link } from "react-router-dom";
+//import "./NavBar.css";
+
+// // import { PlayersContext } from "../../context/PlayersContext";
+// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
 import React from "react";
 
 import "./NavBar.css";
@@ -7,26 +16,55 @@ import MenuGenres from "../MenuGenre/MenuGenres";
 
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
-  return (
-    <nav>
-      <ul>
-        <Link className="li" to="/">
-          Cartelera
-        </Link>
-        <Link className="li" to="/category/top_rated">
-          Generos
-        </Link>
-        <Link className="li" to="/about">
-          About
-        </Link>
-        <Link className="li" to="/contact">
-          Contact
-        </Link>
-        <CardWidget />
-      </ul>
-    </nav>
-  );
+const styles = {
+  linkButton: {
+    textDecoration: "none",
+    color: "white",
+    fontSize: "20px",
+    padding: "0",
+  },
+  purchaseButton: {
+    color: "grey",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
 };
 
+const NavBar = (props) => {
+  //   const [items] = useContext(PlayersContext);
+  return (
+    <AppBar
+      position="static"
+      className="ResponsiveNavigation"
+      style={{ background: "#0c52c4", width: "100%", flexDirection: "row" }}
+    >
+      <div className="BrandContainer">
+        <Link to="/">
+          <h1>{props.title}</h1>
+        </Link>
+      </div>
+
+      <Container maxWidth="xl">
+        <Toolbar disableGutters className="ResponsiveNavigationContainer">
+          <Link to="/" style={styles.linkButton}>
+            Home
+          </Link>
+          <MenuGenres />
+          <Link to="/about" style={styles.linkButton}>
+            About
+          </Link>
+          <Link to="/contact" style={styles.linkButton}>
+            Contact
+          </Link>
+          <Link to="/shop" style={styles.linkButton}>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <CardWidget />
+              {/* {items.length} */}
+            </div>
+          </Link>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+};
 export default NavBar;

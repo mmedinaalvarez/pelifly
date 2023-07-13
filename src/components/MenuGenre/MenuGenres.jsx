@@ -8,6 +8,22 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
 
+import { Link } from "react-router-dom";
+
+const styles = {
+  linkButton: {
+    color: "whitesmoke",
+    fontSize: "20px",
+    textTransform: "none",
+    padding: "0",
+  },
+  link: {
+    color: "black",
+    fontSize: 18,
+    textDecoration: "none",
+  },
+};
+
 const MenuGenres = () => {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -45,13 +61,6 @@ const MenuGenres = () => {
 
   return (
     <Stack direction="row" spacing={2}>
-      <Paper>
-        <MenuList>
-          <MenuItem>Profile</MenuItem>
-          <MenuItem>My account</MenuItem>
-          <MenuItem>Logout</MenuItem>
-        </MenuList>
-      </Paper>
       <div>
         <Button
           ref={anchorRef}
@@ -60,8 +69,9 @@ const MenuGenres = () => {
           aria-expanded={open ? "true" : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
+          style={styles.linkButton}
         >
-          Dashboard
+          Generos
         </Button>
         <Popper
           open={open}
@@ -87,9 +97,36 @@ const MenuGenres = () => {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <Link to="/genre-movie/accion" style={styles.link}>
+                        Acción
+                      </Link>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <Link to="/genre-movie/aventuras" style={styles.link}>
+                        Aventuras
+                      </Link>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <Link to="/genre-movie/animacion" style={styles.link}>
+                        Animación
+                      </Link>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <Link to="/genre-movie/terror" style={styles.link}>
+                        Terror
+                      </Link>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <Link to="/genre-movie/comedia" style={styles.link}>
+                        Comedia
+                      </Link>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <Link to="/genre-movie/drama" style={styles.link}>
+                        Drama
+                      </Link>
+                    </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
