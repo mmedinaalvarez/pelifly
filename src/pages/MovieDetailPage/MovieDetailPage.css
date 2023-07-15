@@ -1,25 +1,67 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+
+.ContainerDetailMovie{
+    background-color: #9bbee8;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 .DetailContainer{
-    margin: 25px;
-    border: solid #5784ba;
-    border-radius: 10px;
+    
+    margin-top: 25px;
     padding-bottom: 20px;
     padding-top: 20px;
-    background-color: #9bbee8;
+    
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
 } 
 
 .CardDetail {
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
 
-.CardDetail img {
+.CardMovie{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.CardMovie img{
     width: 200px;
 }
 
-.OverviewDetail {
-    width: 50%;
-    margin-left: 50px;
+.MovieOverviewDetail {
+    /* width: 50%; */
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    /* margin-left: 50px;
+    margin-right: 20px; */
+}
+
+
+.OverviewDetail
+{
+    width: 365px;
+}
+
+.OverviewDetail p {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+}
+   
+.Directors{
+   
+    width: 200px;
 }

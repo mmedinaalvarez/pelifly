@@ -21,9 +21,7 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        {/* <Header title="Pelifly" /> */}
         <NavBar title="Pelifly" />
-
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 // FIREBASE
 import { db } from "../../firebase/firebaseConfig";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 
 const ListMovie = () => {
   const [movies, setMovies] = useState([]);

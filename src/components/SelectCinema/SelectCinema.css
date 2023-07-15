@@ -1,0 +1,7 @@
+.ContainerSelectCinema{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    margin-top: 45px;
+    margin-left: 20px;
+}

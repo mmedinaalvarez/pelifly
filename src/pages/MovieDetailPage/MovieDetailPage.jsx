@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CardMovie from "../../components/CardMovie/CardMovie";
+import ReactPlayer from "react-player";
 import "./MovieDetailPage.css";
-
+import SelectCinema from "../../components/SelectCinema/SelectCinema";
 import {
   collection,
   query,
@@ -10,7 +11,6 @@ import {
   getDocs,
   documentId,
 } from "firebase/firestore";
-
 import { db } from "../../firebase/firebaseConfig";
 
 const MovieDetailPage = () => {
@@ -33,18 +33,37 @@ const MovieDetailPage = () => {
   }, [id]);
 
   return (
-    <div className="DetailContainer">
-      <div>
-        {movieData.map((data) => {
-          return (
-            <div className="CardDetail" key={data.id}>
-              <CardMovie data={data} />
-              <div className="OverviewDetail">
-                <p>{data.overview}</p>
+    <div>
+      <div className="ContainerDetailMovie">
+        {/* <<div>pepito pistolero</div>> */}
+        <SelectCinema />
+        <div className="DetailContainer">
+          {movieData.map((data) => {
+            return (
+              <div className="CardDetail" key={data.id}>
+                <div className="CardMovie">
+                  <CardMovie data={data} />
+                  <div>
+                    <p>Género: {data.genre}</p>
+                    <p>Duracion{data.duration}</p>
+                    <p>Directores:</p>
+                    <p className="Directors" style={{ marginBottom: 20 }}>
+                      {data.directors.join(", ")}
+                    </p>
+                  </div>
+                </div>
+                <div className="MovieOverviewDetail">
+                  <div className="MovieTrailer">
+                    <ReactPlayer url={data.trailer} width={365} height={200} />
+                  </div>
+                  <div className="OverviewDetail">
+                    <p>{data.overview}</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -1,11 +1,4 @@
-// import { useContext } from "react";
 import { AppBar, Container, Toolbar } from "@mui/material";
-// import MenuGenre from "../MenuGenre/MenuGenre";
-//import { Link } from "react-router-dom";
-//import "./NavBar.css";
-
-// // import { PlayersContext } from "../../context/PlayersContext";
-// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import React from "react";
 
@@ -44,7 +37,7 @@ const NavBar = (props) => {
         </Link>
       </div>
 
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{ zIndex: 1100 }}>
         <Toolbar disableGutters className="ResponsiveNavigationContainer">
           <Link to="/" style={styles.linkButton}>
             Home
