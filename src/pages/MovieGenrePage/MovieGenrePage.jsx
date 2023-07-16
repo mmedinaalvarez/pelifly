@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import CardMovie from "../../components/CardMovie/CardMovie";
 import "./MovieGenrePage.css";
 
@@ -30,7 +30,9 @@ const MovieGenrePage = () => {
         {movieData.map((data) => {
           return (
             <div key={data.id}>
-              <CardMovie data={data} />
+              <Link to={`/detail/${data.id}`}>
+                <CardMovie data={data} />
+              </Link>
             </div>
           );
         })}

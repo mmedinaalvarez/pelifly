@@ -33,7 +33,7 @@ const ShopPage = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const docRef = await addDoc(collection(db, "purchasesCollection"), {
+    const docRef = await addDoc(collection(db, "purchases"), {
       values,
     });
     // console.log("Document written with ID: ", docRef.id);
@@ -42,52 +42,55 @@ const ShopPage = () => {
   };
 
   return (
-    <div style={styles.containerShop}>
-      <h1 style={{ color: "blue" }}>Shop</h1>
-      <form
-        className="FormContainer"
-        style={{ marginLeft: "auto", marginRight: "auto", width: 450 }}
-        onSubmit={onSubmit}
-      >
-        <TextField
-          placeholder="Nombre"
-          style={{ margin: 10, width: 400 }}
-          name="name"
-          value={values.name}
-          onChange={handleOnChange}
-        />
-        <TextField
-          placeholder="Apellido"
-          style={{ margin: 10, width: 400 }}
-          name="lastName"
-          value={values.lastName}
-          onChange={handleOnChange}
-        />
-        <TextField
-          placeholder="Telefono"
-          style={{ margin: 10, width: 400 }}
-          name="phone"
-          value={values.phone}
-          onChange={handleOnChange}
-        />
-        <TextField
-          placeholder="Email"
-          style={{ margin: 10, width: 400 }}
-          name="email"
-          value={values.email}
-          onChange={handleOnChange}
-        />
-        <TextField
-          placeholder="Reingrese su Email"
-          style={{ margin: 10, width: 400 }}
-          name="remail"
-          value={values.remail}
-          onChange={handleOnChange}
-        />
-        <button className="btnASendAction">Enviar</button>
-      </form>
+    <div>
+      <div></div>
+      <div style={styles.containerShop}>
+        <h1 style={{ color: "blue" }}>Shop</h1>
+        <form
+          className="FormContainer"
+          style={{ marginLeft: "auto", marginRight: "auto", width: 450 }}
+          onSubmit={onSubmit}
+        >
+          <TextField
+            placeholder="Nombre"
+            style={{ margin: 10, width: 400 }}
+            name="name"
+            value={values.name}
+            onChange={handleOnChange}
+          />
+          <TextField
+            placeholder="Apellido"
+            style={{ margin: 10, width: 400 }}
+            name="lastName"
+            value={values.lastName}
+            onChange={handleOnChange}
+          />
+          <TextField
+            placeholder="Telefono"
+            style={{ margin: 10, width: 400 }}
+            name="phone"
+            value={values.phone}
+            onChange={handleOnChange}
+          />
+          <TextField
+            placeholder="Email"
+            style={{ margin: 10, width: 400 }}
+            name="email"
+            value={values.email}
+            onChange={handleOnChange}
+          />
+          <TextField
+            placeholder="Reingrese su Email"
+            style={{ margin: 10, width: 400 }}
+            name="remail"
+            value={values.remail}
+            onChange={handleOnChange}
+          />
+          <button className="btnASendAction">Enviar</button>
+        </form>
 
-      {purchaseID ? <MessageSuccess purchaseID={purchaseID} /> : null}
+        {purchaseID ? <MessageSuccess purchaseID={purchaseID} /> : null}
+      </div>
     </div>
   );
 };

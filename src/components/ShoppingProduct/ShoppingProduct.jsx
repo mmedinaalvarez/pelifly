@@ -9,6 +9,11 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import "./ShoppingProduct.css";
 
+//Toastify
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 const ShoppingProduct = ({ movie }) => {
   const { cartItems, addToCart, removeFromCart } = useCart();
   const [quantity, setQuantity] = useState(0);
@@ -32,9 +37,18 @@ const ShoppingProduct = ({ movie }) => {
   const handleAddToCart = () => {
     if (quantity > 0) {
       addToCart(movie, quantity);
-      setQuantity(0); // Reseteamos la cantidad después de añadir al carrito
+      setQuantity(0); // Reset de cantidad despues de ponerlo en el carrito
     } else {
-      alert("La cantidad debe ser mayor que cero.");
+      toast.error("La cantidad debe ser mayor que cero.", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   };
   const handleRemoveFromCart = () => {
@@ -51,7 +65,7 @@ const ShoppingProduct = ({ movie }) => {
 
   const handleChangeQuantity = (e) => {
     const value = e.target.value;
-    setQuantity(Math.max(0, parseInt(value))); // Evitamos valores negativos
+    setQuantity(Math.max(0, parseInt(value)));
   };
 
   return (
@@ -90,6 +104,7 @@ const ShoppingProduct = ({ movie }) => {
           >
             Comprar
           </Button>
+          <ToastContainer />
         </div>
       </div>
     </Stack>

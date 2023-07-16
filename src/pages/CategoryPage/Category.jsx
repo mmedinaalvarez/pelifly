@@ -18,7 +18,7 @@ const Category = () => {
 
   return (
     <div>
-      <SearchMovie />
+      {/* <SearchMovie /> */}
       <div className="Cards-List">
         {names.map((name) => {
           return (
