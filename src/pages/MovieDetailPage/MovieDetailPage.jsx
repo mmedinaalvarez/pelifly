@@ -4,6 +4,7 @@ import CardMovie from "../../components/CardMovie/CardMovie";
 import ReactPlayer from "react-player";
 import "./MovieDetailPage.css";
 import SelectCinema from "../../components/SelectCinema/SelectCinema";
+import ShoppingProduct from "../../components/ShoppingProduct/ShoppingProduct";
 import {
   collection,
   query,
@@ -36,7 +37,15 @@ const MovieDetailPage = () => {
     <div>
       <div className="ContainerDetailMovie">
         {/* <<div>pepito pistolero</div>> */}
-        <SelectCinema />
+        <div className="BuyMovie">
+          <div>
+            <SelectCinema />
+          </div>
+          <div>
+            <ShoppingProduct />
+          </div>
+        </div>
+
         <div className="DetailContainer">
           {movieData.map((data) => {
             return (
@@ -45,11 +54,13 @@ const MovieDetailPage = () => {
                   <CardMovie data={data} />
                   <div>
                     <p>Género: {data.genre}</p>
-                    <p>Duracion{data.duration}</p>
-                    <p>Directores:</p>
-                    <p className="Directors" style={{ marginBottom: 20 }}>
-                      {data.directors.join(", ")}
+                    <p>Duracion:{data.duration}</p>
+                    <p>Actores: </p>
+                    <p className="Description" style={{ marginBottom: 5 }}>
+                      {data.actors.join(", ")}
                     </p>
+                    <p>Directores:</p>
+                    <p className="Description">{data.directors.join(", ")}</p>
                   </div>
                 </div>
                 <div className="MovieOverviewDetail">

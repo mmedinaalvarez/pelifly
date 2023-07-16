@@ -27,8 +27,8 @@ const SelectCinema = () => {
   }, []);
   return (
     <div>
-      <div className="ContainerSelectCinema">
-        <div>
+      <div>
+        <div className="ContainerSelectCinema">
           <select style={{ marginRight: 20 }} onChange={selectDate}>
             <option>Selecciona un cine</option>
             {cinemas.map((cinema) => {
@@ -39,32 +39,18 @@ const SelectCinema = () => {
               );
             })}
           </select>
-        </div>
-        <div>
-          {/* {selectEnabled ? (
-            <select>
-              <option>Selecciona un horario</option>
-              <option onClick={selectDate}>Prueba</option> 
-              <option selected={selectDate}>Lunes</option>
-            </select>
-          ) : null} /*} */}
-          {/* {selectEnabled ? (
-            <select>
-              <option>Selecciona un horario</option>
-              <option>Lunes</option>
-            </select>
-          )} */}
+
           {selectEnabled ? (
             <select disabled={!selectEnabled}>
               <option>Selecciona un horario</option>
-              <option>Prueba</option>
-              <option>Lunes</option>
+              <option>13:40 Hs</option>
+              <option>17:00 Hs</option>
+              <option>20:00 Hs</option>
+              <option>00:02 Hs</option>
             </select>
           ) : (
             <select disabled>
               <option>Selecciona un horario</option>
-              <option>Prueba</option>
-              <option>Lunes</option>
             </select>
           )}
         </div>

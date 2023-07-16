@@ -9,7 +9,6 @@
     margin-top: 30px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
 }
 .DetailContainer{
     
@@ -61,7 +60,14 @@
     margin-top: 10px;
 }
    
-.Directors{
+.Description{
    
     width: 200px;
+}
+
+.BuyMovie{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
