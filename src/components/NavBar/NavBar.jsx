@@ -43,12 +43,7 @@ const NavBar = (props) => {
             Cartelera
           </Link>
           <MenuGenres />
-          <Link to="/about" style={styles.linkButton}>
-            Nosotros
-          </Link>
-          <Link to="/contact" style={styles.linkButton}>
-            Contactanos
-          </Link>
+
           <Link to="/shop" style={styles.linkButton}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <CardWidget />

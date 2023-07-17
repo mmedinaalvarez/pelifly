@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CardMovie from "../CardMovie/CardMovie";
+
 import "./ListMovie.css";
 
 import { Link } from "react-router-dom";
