@@ -40,14 +40,14 @@ const NavBar = (props) => {
       <Container maxWidth="xl" sx={{ zIndex: 1100 }}>
         <Toolbar disableGutters className="ResponsiveNavigationContainer">
           <Link to="/" style={styles.linkButton}>
-            Home
+            Cartelera
           </Link>
           <MenuGenres />
           <Link to="/about" style={styles.linkButton}>
-            About
+            Nosotros
           </Link>
           <Link to="/contact" style={styles.linkButton}>
-            Contact
+            Contactanos
           </Link>
           <Link to="/shop" style={styles.linkButton}>
             <div style={{ display: "flex", alignItems: "center" }}>

@@ -1,23 +1,26 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
-const CartContext = createContext();
-
-export const useCart = () => {
-  return useContext(CartContext);
-};
+export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [movieName, setMovieName] = useState("");
+  const [moviePrice, setMoviePrice] = useState(0);
 
-  const addToCart = (movie, quantity) => {
+  const addToCart = (movie, quantity, price) => {
     setCartItems((prevItems) => [
       ...prevItems,
       {
         movie: movie,
         quantity: quantity,
+        price: price,
       },
     ]);
   };
+
+  useEffect(() => {
+    console.log("Updated cartItems:", cartItems);
+  }, [cartItems]);
 
   const removeFromCart = (movie) => {
     setCartItems((prevItems) => {
@@ -25,8 +28,22 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  const setMovieInfo = (name, price) => {
+    setMovieName(name);
+    setMoviePrice(price);
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        movieName,
+        moviePrice,
+        setMovieInfo,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

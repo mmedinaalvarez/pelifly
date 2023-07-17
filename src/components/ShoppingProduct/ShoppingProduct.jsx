@@ -1,6 +1,6 @@
-import * as React from "react";
-import { useState } from "react";
-import { useCart } from "../../Context/CartContext";
+import React, { useState, useContext } from "react";
+// import { useState } from "react";
+import { CartContext } from "../../Context/CartContext";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
@@ -11,11 +11,11 @@ import "./ShoppingProduct.css";
 
 //Toastify
 import { ToastContainer, toast } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css";
 
 const ShoppingProduct = ({ movie }) => {
-  const { cartItems, addToCart, removeFromCart } = useCart();
+  const { cartItems, addToCart, movieName, moviePrice } =
+    useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
 
   // Función para combinar las cantidades de productos duplicados en el array
@@ -29,14 +29,18 @@ const ShoppingProduct = ({ movie }) => {
         combinedItems.push({ ...item });
       }
     });
+    console.log("cart items", cartItems);
     return combinedItems;
   };
 
   const combinedCartItems = combineDuplicateItems(cartItems);
 
   const handleAddToCart = () => {
+    // console.log("Movie Name:", movie.name);
+    // console.log("Movie Price:", movie.price);
     if (quantity > 0) {
-      addToCart(movie, quantity);
+      addToCart(movieName, quantity, moviePrice);
+
       setQuantity(0); // Reset de cantidad despues de ponerlo en el carrito
     } else {
       toast.error("La cantidad debe ser mayor que cero.", {
@@ -50,9 +54,6 @@ const ShoppingProduct = ({ movie }) => {
         theme: "colored",
       });
     }
-  };
-  const handleRemoveFromCart = () => {
-    removeFromCart(movie);
   };
 
   const handleIncrement = () => {

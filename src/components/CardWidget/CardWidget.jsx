@@ -1,46 +1,51 @@
-import React from "react";
-import { useCart } from "../../Context/CartContext";
+import React, { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 import "./CardWidget.css";
 import MovieIcon from "@mui/icons-material/LocalMovies";
 
 const CardWidget = () => {
-  const { cartItems } = useCart();
+  const { cartItems } = useContext(CartContext);
 
   const getTotalItemsInCart = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
-  // Función para combinar las cantidades de productos duplicados en el array
+  // const combineDuplicateItems = (cartItems) => {
+  //   const combinedItems = [];
+  //   cartItems.forEach((item) => {
+  //     const existingItem = combinedItems.find((i) => i.movie === item.movie);
+  //     if (existingItem) {
+  //       existingItem.quantity += item.quantity;
+  //     } else {
+  //       combinedItems.push({ ...item });
+  //     }
+  //   });
+  //   return combinedItems;
+  // };
+
   const combineDuplicateItems = (cartItems) => {
-    const combinedItems = [];
+    const combinedItems = {};
     cartItems.forEach((item) => {
-      const existingItem = combinedItems.find((i) => i.movie === item.movie);
-      if (existingItem) {
-        existingItem.quantity += item.quantity;
+      const { id, quantity } = item;
+      if (combinedItems[id]) {
+        combinedItems[id].quantity += quantity;
       } else {
-        combinedItems.push({ ...item });
+        combinedItems[id] = { ...item };
       }
     });
-    return combinedItems;
+    return Object.values(combinedItems);
   };
 
   const combinedCartItems = combineDuplicateItems(cartItems);
-
-  // Función para guardar los elementos del carrito en el localStorage
-  const saveCartToLocalStorage = (cartItems) => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  };
 
   return (
     <div style={{ color: "whitesmoke" }} className="CartWidget">
       <MovieIcon />
       {combinedCartItems.map((item) => (
         <div className="widgetCartItem" key={item.movie}>
-          <p>{item.movie}</p>
           <p>{item.quantity}</p>
         </div>
       ))}
-      {/* <p>Total de productos en el carrito: {getTotalItemsInCart()}</p> */}
     </div>
   );
 };

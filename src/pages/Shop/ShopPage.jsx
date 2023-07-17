@@ -6,6 +6,7 @@ import MessageSuccess from "../../components/MessageSuccess/MessageSuccess";
 //Firebase
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
+import DetailBuys from "../../components/DetailBuys/DetailBuys";
 
 const initialState = {
   name: "",
@@ -43,7 +44,9 @@ const ShopPage = () => {
 
   return (
     <div>
-      <div></div>
+      <div>
+        <DetailBuys />
+      </div>
       <div style={styles.containerShop}>
         <h1 style={{ color: "blue" }}>Shop</h1>
         <form

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 import { useParams } from "react-router-dom";
 import CardMovie from "../../components/CardMovie/CardMovie";
 import ReactPlayer from "react-player";
@@ -16,6 +17,8 @@ import { db } from "../../firebase/firebaseConfig";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
+  const { cartItems, setMovieInfo, movieName, moviePrice } =
+    useContext(CartContext);
   const [movieData, setMovieData] = useState([]);
 
   console.log(movieData);
@@ -32,6 +35,13 @@ const MovieDetailPage = () => {
     };
     getMovies();
   }, [id]);
+
+  useEffect(() => {
+    if (movieData.length > 0) {
+      const { name, price } = movieData[0];
+      setMovieInfo(name, price);
+    }
+  }, [movieData, setMovieInfo]);
 
   return (
     <div>
@@ -69,6 +79,7 @@ const MovieDetailPage = () => {
                   </div>
                   <div className="OverviewDetail">
                     <p>{data.overview}</p>
+                    <p>Precio: {data.price}</p>
                   </div>
                 </div>
               </div>
