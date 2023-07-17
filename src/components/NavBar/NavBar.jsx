@@ -24,7 +24,6 @@ const styles = {
 };
 
 const NavBar = (props) => {
-  //   const [items] = useContext(PlayersContext);
   return (
     <AppBar
       position="static"
@@ -47,7 +46,6 @@ const NavBar = (props) => {
           <Link to="/shop" style={styles.linkButton}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <CardWidget />
-              {/* {items.length} */}
             </div>
           </Link>
         </Toolbar>

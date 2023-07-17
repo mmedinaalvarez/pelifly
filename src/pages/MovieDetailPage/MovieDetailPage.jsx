@@ -21,8 +21,6 @@ const MovieDetailPage = () => {
     useContext(CartContext);
   const [movieData, setMovieData] = useState([]);
 
-  console.log(movieData);
-
   useEffect(() => {
     const getMovies = async () => {
       const q = query(collection(db, "movies"), where(documentId(), "==", id));

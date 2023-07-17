@@ -27,7 +27,7 @@ const ShoppingProduct = ({ movie }) => {
         combinedItems.push({ ...item });
       }
     });
-    console.log("cart items", cartItems);
+
     return combinedItems;
   };
 

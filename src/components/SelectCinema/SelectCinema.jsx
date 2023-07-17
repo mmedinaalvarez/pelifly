@@ -7,13 +7,8 @@ import { collection, query, getDocs } from "firebase/firestore";
 const SelectCinema = () => {
   const [cinemas, setCinemas] = useState([]);
 
-  const [selectEnabled, setSelectEnabled] = useState(false);
   const { selectedCinema, setSelectedCinema, selectedTime, setSelectedTime } =
     useContext(CartContext);
-
-  const selectDate = () => {
-    setSelectEnabled(true);
-  };
 
   const handleCinemaChange = (e) => {
     setSelectedCinema(e.target.value);
@@ -31,40 +26,40 @@ const SelectCinema = () => {
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
       });
-      console.log(docs);
+
       setCinemas(docs);
     };
     getCinemas();
   }, []);
+  const isCinemaSelected = selectedCinema !== "";
   return (
     <div>
       <div>
         <div className="ContainerSelectCinema">
-          {/* <select style={{ marginRight: 20 }} onChange={selectDate}> */}
-          <select style={{ marginRight: 20 }} onChange={handleCinemaChange}>
-            <option>Selecciona un cine</option>
-            {cinemas.map((cinema) => {
-              return (
-                <option key={cinema.id} value={cinema.id}>
-                  {cinema.name}
-                </option>
-              );
-            })}
+          <select
+            style={{ marginRight: 20 }}
+            onChange={handleCinemaChange}
+            value={selectedCinema}
+          >
+            <option value="">Selecciona un cine</option>
+            {cinemas.map((cinema) => (
+              <option key={cinema.id} value={cinema.id}>
+                {cinema.name}
+              </option>
+            ))}
           </select>
 
-          {selectEnabled ? (
-            <select disabled={!selectEnabled} onChange={handleTimeChange}>
-              <option>Selecciona un horario</option>
-              <option>13:40 Hs</option>
-              <option>17:00 Hs</option>
-              <option>20:00 Hs</option>
-              <option>00:02 Hs</option>
-            </select>
-          ) : (
-            <select disabled>
-              <option>Selecciona un horario</option>
-            </select>
-          )}
+          <select
+            disabled={!isCinemaSelected}
+            onChange={handleTimeChange}
+            value={selectedTime}
+          >
+            <option value="">Selecciona un horario</option>
+            <option value="13:40">13:40 Hs</option>
+            <option value="17:00">17:00 Hs</option>
+            <option value="20:00">20:00 Hs</option>
+            <option value="00:02">00:02 Hs</option>
+          </select>
         </div>
       </div>
     </div>
