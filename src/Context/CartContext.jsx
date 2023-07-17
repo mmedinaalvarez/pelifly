@@ -9,13 +9,15 @@ export const CartProvider = ({ children }) => {
   const [selectedCinema, setSelectedCinema] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
 
-  const addToCart = (movie, quantity, price) => {
+  const addToCart = (movie, quantity, price, cinema, time) => {
     setCartItems((prevItems) => [
       ...prevItems,
       {
         movie: movie,
         quantity: quantity,
         price: price,
+        cinema: cinema,
+        time: time,
       },
     ]);
   };

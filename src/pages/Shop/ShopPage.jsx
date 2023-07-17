@@ -40,7 +40,8 @@ const ShopPage = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const { cartItems, clearCart } = useContext(CartContext);
+  const { cartItems, clearCart, selectedCinema, selectedTime } =
+    useContext(CartContext);
 
   const handleOnChange = (e) => {
     const { value, name } = e.target;
@@ -56,10 +57,14 @@ const ShopPage = () => {
       const docRef = await addDoc(collection(db, "purchases"), {
         values,
         cartItems,
+        selectedCinema,
+        selectedTime,
       });
+
       setPurchaseID(docRef.id);
       setValues(initialState);
       clearCart();
+
       toast.success(`Compra realizada con éxito. ID de compra: ${docRef.id}`, {
         position: "top-right",
         autoClose: 5000,

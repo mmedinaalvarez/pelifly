@@ -43,7 +43,7 @@ const SelectCinema = () => {
           >
             <option value="">Selecciona un cine</option>
             {cinemas.map((cinema) => (
-              <option key={cinema.id} value={cinema.id}>
+              <option key={cinema.id} value={cinema.name}>
                 {cinema.name}
               </option>
             ))}

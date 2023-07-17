@@ -31,7 +31,13 @@ function combineDuplicateItems(cartItems) {
       existingItem.qty += quantity;
       existingItem.price += price;
     } else {
-      combinedItems.push({ desc: movie, qty: quantity, unit: price, price });
+      combinedItems.push({
+        desc: movie,
+        qty: quantity,
+        unit: price,
+
+        price,
+      });
     }
   });
   return combinedItems;
@@ -41,8 +47,8 @@ function subtotal(items) {
 }
 
 const DetailBuys = () => {
-  const { cartItems, setCartItems, cartReset } = useContext(CartContext);
-
+  const { cartItems, setCartItems, selectedCinema, selectedTime } =
+    useContext(CartContext);
   const rows = combineDuplicateItems(cartItems);
   const invoiceSubtotal = subtotal(rows);
   const invoiceTaxes = TAX_RATE * invoiceSubtotal;
@@ -57,27 +63,43 @@ const DetailBuys = () => {
       <Table sx={{ minWidth: 700 }} aria-label="spanning table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" colSpan={3}>
+            <TableCell sx={{ width: "70%" }} align="center" colSpan={5}>
               Detalles de la compra
             </TableCell>
 
             <TableCell align="right">Precio</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Desc</TableCell>
-
-            <TableCell align="right">Cant.</TableCell>
-            <TableCell align="right">$ Unit</TableCell>
-            <TableCell align="right">$ Sum</TableCell>
+            <TableCell sx={{ width: "20%" }}>Desc</TableCell>
+            <TableCell sx={{ width: "20%" }}>Cine</TableCell>
+            <TableCell sx={{ width: "20%" }}>Horario</TableCell>
+            <TableCell align="right" sx={{ width: "10%" }}>
+              Cant.
+            </TableCell>
+            <TableCell align="right" sx={{ width: "15%" }}>
+              $ Unit
+            </TableCell>
+            <TableCell align="right" sx={{ width: "15%" }}>
+              $ Sum
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.desc}>
-              <TableCell>{row.desc}</TableCell>
-              <TableCell align="right">{row.qty}</TableCell>
-              <TableCell align="right">{row.unit}</TableCell>
-              <TableCell align="right">{ccyFormat(row.price)}</TableCell>
+              <TableCell sx={{ width: "20%" }}>{row.desc}</TableCell>
+              <TableCell sx={{ width: "20%" }}>{selectedCinema}</TableCell>
+              <TableCell sx={{ width: "20%" }}>{selectedTime}</TableCell>
+
+              <TableCell align="right" sx={{ width: "10%" }}>
+                {row.qty}
+              </TableCell>
+              <TableCell align="right" sx={{ width: "15%" }}>
+                {row.unit}
+              </TableCell>
+              <TableCell align="right" sx={{ width: "15%" }}>
+                {ccyFormat(row.price)}
+              </TableCell>
             </TableRow>
           ))}
           <TableRow>

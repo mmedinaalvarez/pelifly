@@ -13,8 +13,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ShoppingProduct = ({ movie }) => {
-  const { cartItems, addToCart, movieName, moviePrice } =
-    useContext(CartContext);
+  const {
+    cartItems,
+    addToCart,
+    movieName,
+    moviePrice,
+    selectedCinema,
+    selectedTime,
+  } = useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
 
   const combineDuplicateItems = (cartItems) => {
@@ -35,11 +41,9 @@ const ShoppingProduct = ({ movie }) => {
 
   const handleAddToCart = () => {
     if (quantity > 0) {
-      addToCart(movieName, quantity, moviePrice);
+      addToCart(movieName, quantity, moviePrice, selectedCinema, selectedTime);
 
       setQuantity(0);
-      setSelectedCinema("");
-      setSelectedTime("");
     } else {
       toast.error("La cantidad debe ser mayor que cero.", {
         position: "bottom-center",

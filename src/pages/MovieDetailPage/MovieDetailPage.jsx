@@ -17,8 +17,7 @@ import { db } from "../../firebase/firebaseConfig";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
-  const { cartItems, setMovieInfo, movieName, moviePrice } =
-    useContext(CartContext);
+  const { setMovieInfo } = useContext(CartContext);
   const [movieData, setMovieData] = useState([]);
 
   useEffect(() => {
