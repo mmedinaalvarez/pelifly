@@ -46,7 +46,6 @@ const MovieDetailPage = () => {
   return (
     <div>
       <div className="ContainerDetailMovie">
-        {/* <<div>pepito pistolero</div>> */}
         <div className="BuyMovie">
           <div>
             <SelectCinema />

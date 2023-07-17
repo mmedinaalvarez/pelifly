@@ -6,23 +6,6 @@ import MovieIcon from "@mui/icons-material/LocalMovies";
 const CardWidget = () => {
   const { cartItems } = useContext(CartContext);
 
-  const getTotalItemsInCart = () => {
-    return cartItems.reduce((total, item) => total + item.quantity, 0);
-  };
-
-  // const combineDuplicateItems = (cartItems) => {
-  //   const combinedItems = [];
-  //   cartItems.forEach((item) => {
-  //     const existingItem = combinedItems.find((i) => i.movie === item.movie);
-  //     if (existingItem) {
-  //       existingItem.quantity += item.quantity;
-  //     } else {
-  //       combinedItems.push({ ...item });
-  //     }
-  //   });
-  //   return combinedItems;
-  // };
-
   const combineDuplicateItems = (cartItems) => {
     const combinedItems = {};
     cartItems.forEach((item) => {

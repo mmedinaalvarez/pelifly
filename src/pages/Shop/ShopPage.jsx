@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { CartContext } from "../../Context/CartContext";
 import TextField from "@mui/material/TextField";
 import "./ShopPage.css";
 import MessageSuccess from "../../components/MessageSuccess/MessageSuccess";
@@ -27,6 +28,8 @@ const ShopPage = () => {
   const [values, setValues] = useState(initialState);
   const [purchaseID, setPurchaseID] = useState(null);
 
+  const { cartItems, clearCart } = useContext(CartContext);
+
   const handleOnChange = (e) => {
     const { value, name } = e.target;
     setValues({ ...values, [name]: value });
@@ -34,12 +37,18 @@ const ShopPage = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const docRef = await addDoc(collection(db, "purchases"), {
-      values,
-    });
-    // console.log("Document written with ID: ", docRef.id);
-    setPurchaseID(docRef.id);
-    setValues(initialState);
+
+    if (values.email !== values.remail) {
+      alert("Los correos ingresados no coinciden");
+    } else {
+      const docRef = await addDoc(collection(db, "purchases"), {
+        values,
+        cartItems,
+      });
+      setPurchaseID(docRef.id);
+      setValues(initialState);
+      clearCart();
+    }
   };
 
   return (
@@ -48,7 +57,9 @@ const ShopPage = () => {
         <DetailBuys />
       </div>
       <div style={styles.containerShop}>
-        <h1 style={{ color: "blue" }}>Shop</h1>
+        <h2 style={{ color: "blue" }}>
+          Ingrese sus datos para finalizar la compra
+        </h2>
         <form
           className="FormContainer"
           style={{ marginLeft: "auto", marginRight: "auto", width: 450 }}
@@ -89,7 +100,7 @@ const ShopPage = () => {
             value={values.remail}
             onChange={handleOnChange}
           />
-          <button className="btnASendAction">Enviar</button>
+          <button className="btnASendAction">Comprar</button>
         </form>
 
         {purchaseID ? <MessageSuccess purchaseID={purchaseID} /> : null}

@@ -6,6 +6,8 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [movieName, setMovieName] = useState("");
   const [moviePrice, setMoviePrice] = useState(0);
+  const [selectedCinema, setSelectedCinema] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
 
   const addToCart = (movie, quantity, price) => {
     setCartItems((prevItems) => [
@@ -18,10 +20,9 @@ export const CartProvider = ({ children }) => {
     ]);
   };
 
-  useEffect(() => {
-    console.log("Updated cartItems:", cartItems);
-  }, [cartItems]);
-
+  const clearCart = () => {
+    setCartItems([]);
+  };
   const removeFromCart = (movie) => {
     setCartItems((prevItems) => {
       return prevItems.filter((item) => item.movie !== movie);
@@ -42,6 +43,11 @@ export const CartProvider = ({ children }) => {
         movieName,
         moviePrice,
         setMovieInfo,
+        selectedCinema,
+        setSelectedCinema,
+        selectedTime,
+        setSelectedTime,
+        clearCart,
       }}
     >
       {children}

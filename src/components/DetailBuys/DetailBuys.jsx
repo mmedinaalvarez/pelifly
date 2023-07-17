@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../Context/CartContext";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -41,12 +41,17 @@ function subtotal(items) {
 }
 
 const DetailBuys = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, setCartItems, cartReset } = useContext(CartContext);
 
   const rows = combineDuplicateItems(cartItems);
   const invoiceSubtotal = subtotal(rows);
   const invoiceTaxes = TAX_RATE * invoiceSubtotal;
   const invoiceTotal = invoiceTaxes + invoiceSubtotal;
+
+  const clearCartItems = () => {
+    setCartItems([]);
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="spanning table">
@@ -55,10 +60,12 @@ const DetailBuys = () => {
             <TableCell align="center" colSpan={3}>
               Detalles de la compra
             </TableCell>
+
             <TableCell align="right">Precio</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Desc</TableCell>
+
             <TableCell align="right">Cant.</TableCell>
             <TableCell align="right">$ Unit</TableCell>
             <TableCell align="right">$ Sum</TableCell>

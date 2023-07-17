@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 import "./SelectCinema.css";
 import { db } from "../../firebase/firebaseConfig";
 import { collection, query, getDocs } from "firebase/firestore";
@@ -7,9 +8,19 @@ const SelectCinema = () => {
   const [cinemas, setCinemas] = useState([]);
 
   const [selectEnabled, setSelectEnabled] = useState(false);
+  const { selectedCinema, setSelectedCinema, selectedTime, setSelectedTime } =
+    useContext(CartContext);
 
   const selectDate = () => {
     setSelectEnabled(true);
+  };
+
+  const handleCinemaChange = (e) => {
+    setSelectedCinema(e.target.value);
+  };
+
+  const handleTimeChange = (e) => {
+    setSelectedTime(e.target.value);
   };
 
   useEffect(() => {
@@ -29,7 +40,8 @@ const SelectCinema = () => {
     <div>
       <div>
         <div className="ContainerSelectCinema">
-          <select style={{ marginRight: 20 }} onChange={selectDate}>
+          {/* <select style={{ marginRight: 20 }} onChange={selectDate}> */}
+          <select style={{ marginRight: 20 }} onChange={handleCinemaChange}>
             <option>Selecciona un cine</option>
             {cinemas.map((cinema) => {
               return (
@@ -41,7 +53,7 @@ const SelectCinema = () => {
           </select>
 
           {selectEnabled ? (
-            <select disabled={!selectEnabled}>
+            <select disabled={!selectEnabled} onChange={handleTimeChange}>
               <option>Selecciona un horario</option>
               <option>13:40 Hs</option>
               <option>17:00 Hs</option>

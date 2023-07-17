@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-// import { useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
@@ -18,7 +17,6 @@ const ShoppingProduct = ({ movie }) => {
     useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
 
-  // Función para combinar las cantidades de productos duplicados en el array
   const combineDuplicateItems = (cartItems) => {
     const combinedItems = [];
     cartItems.forEach((item) => {
@@ -36,12 +34,12 @@ const ShoppingProduct = ({ movie }) => {
   const combinedCartItems = combineDuplicateItems(cartItems);
 
   const handleAddToCart = () => {
-    // console.log("Movie Name:", movie.name);
-    // console.log("Movie Price:", movie.price);
     if (quantity > 0) {
       addToCart(movieName, quantity, moviePrice);
 
-      setQuantity(0); // Reset de cantidad despues de ponerlo en el carrito
+      setQuantity(0);
+      setSelectedCinema("");
+      setSelectedTime("");
     } else {
       toast.error("La cantidad debe ser mayor que cero.", {
         position: "bottom-center",
@@ -103,7 +101,7 @@ const ShoppingProduct = ({ movie }) => {
             onClick={handleAddToCart}
             style={{ marginTop: 20 }}
           >
-            Comprar
+            Añadir al carrito
           </Button>
           <ToastContainer />
         </div>
